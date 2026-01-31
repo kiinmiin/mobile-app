@@ -25,4 +25,11 @@ export const styles = StyleSheet.create({
 		color: colors.orange,
 		textDecorationLine: "underline",
 	},
+	footerText: {
+		color: colors.blue,
+		textAlign: "center",
+		fontSize: 16,
+		fontWeight: "700",
+		marginTop: 30,
+	},
 });

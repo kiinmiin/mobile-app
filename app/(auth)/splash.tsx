@@ -1,6 +1,8 @@
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Pressable, Text, View } from "react-native";
+import { Button } from "../../components/Button";
 import { styles } from "./splash.styles";
+
 export default function Splash() {
 return (
 <View style={styles.container}>
@@ -14,7 +16,10 @@ resizeMode="contain"
 <Text style={[styles.title, styles.innerTitle]}>All you need</Text>
 <Text style={styles.title}>Here!</Text>
 </View>
-{/* Nupud lisame töölehe 2 käigus */}
+<Button title="Sign Up" onPress={() => console.log("Sign Up")} />
+<Pressable hitSlop={10} onPress={() => console.log("Sign In")}>
+<Text style={styles.footerText}>Sign In</Text>
+</Pressable>
 </View>
 );
 }
