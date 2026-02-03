@@ -32,4 +32,13 @@ export const styles = StyleSheet.create({
 		fontWeight: "700",
 		marginTop: 30,
 	},
+	submitButton: {
+		marginTop: 16,
+	},
 });
+
+// Expo router requires a default export for files in the app/ routes.
+// Provide a no-op default component so this file can remain a styles module.
+export default function _stylesPlaceholder() {
+	return null;
+}
