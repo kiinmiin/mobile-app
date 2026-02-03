@@ -9,9 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rasmo.mobileapp"
     },
     "android": {
+      "package": "com.rasmo.mobileapp",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
@@ -38,7 +40,13 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      [ 
+      "@react-native-google-signin/google-signin",
+      {
+        "iosUrlScheme": "com.googleusercontent.apps.ln9ns9htm1je7ial3g65p5lmvoaouh35-133859963613"
+      }
+      ]  
     ],
     "experiments": {
       "typedRoutes": true,
