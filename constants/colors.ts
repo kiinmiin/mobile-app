@@ -10,6 +10,9 @@ export const colors = {
     black: "#000000",
     orange: "#FFA500",
     blue: "#0000FF",
+    mutedText: "#6B7280",
+    card: "#FFFFFF",
+    border: "#E5E7EB",
   } as const;
   
   export type ColorName = keyof typeof colors;

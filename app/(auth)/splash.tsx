@@ -1,12 +1,13 @@
 import { router } from "expo-router";
 import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../../components/Button";
 import { styles } from "./splash.styles";
 
 export default function Splash() {
 	return (
-		<View style={styles.container}>
+		<SafeAreaView style={styles.container}>
 			<Image
 				source={require("../../assets/images/splash_image.png")}
 				style={styles.image}
@@ -21,6 +22,6 @@ export default function Splash() {
 			<Pressable hitSlop={10} onPress={() => router.push("/sign-in")}>
 				<Text style={styles.footerText}>Sign In</Text>
 			</Pressable>
-		</View>
+		</SafeAreaView>
 	);
 }
