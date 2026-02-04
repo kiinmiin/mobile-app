@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import React, { useState } from "react";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import AuthFooter from "../../components/AuthFooter";
 
 import AuthHeader from "../../components/AuthHeader";
@@ -20,7 +20,7 @@ export default function SignupScreen() {
   const canSubmit = email.length > 0 && password.length >= 6 && agree;
 
   return (
-    <View style={styles.containter}>
+    <SafeAreaView style={styles.containter}>
       <AuthHeader title="Sign Up" onBackPress={() => router.back()} />
 
       <Input label="Email" placeholder="example@mail.com" value={email} onChangeText={setEmail} />
@@ -36,7 +36,7 @@ export default function SignupScreen() {
             return;
           }
           console.log("Signup succeeded", { email, password });
-          router.replace("/");
+          router.replace("/(tabs)/home");
         }}
         disabled={!canSubmit}
       />
@@ -46,10 +46,10 @@ export default function SignupScreen() {
       <GoogleLogin
         onSuccess={(userInfo) => {
           console.log("Google sign-in success:", userInfo);
-          router.replace("/");
+          router.replace("/(tabs)/home");
         }}
       />
       <AuthFooter/>
-    </View>
+    </SafeAreaView>
   );
 }
