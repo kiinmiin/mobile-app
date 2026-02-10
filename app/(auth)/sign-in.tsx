@@ -7,7 +7,7 @@ import AuthFooter from "../../components/AuthFooter";
 import AuthHeader from "../../components/AuthHeader";
 import { Button } from "../../components/Button";
 import GoogleLogin from "../../components/GoogleLogin";
-import Input from "../../components/Input";
+import Input from "../../components/Input/index";
 import Separator from "../../components/Separator";
 
 export default function SignInScreen() {
