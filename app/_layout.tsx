@@ -7,5 +7,11 @@ export default function RootLayout() {
     initGoogleSignIn();
   }, []);
 
-  return <Stack />;
+  return (
+    <Stack screenOptions={{headerShown: true}}>
+      <Stack.Screen name="(tabs)" options={{ headerShown: true }} />
+      <Stack.Screen name="(auth)" options={{ headerShown: true }} />
+      <Stack.Screen name="product/[id]" options={{ headerShown: true }} />
+    </Stack>
+  );
 }

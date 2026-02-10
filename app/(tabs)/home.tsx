@@ -37,7 +37,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        title="Home"
+        title="Find All You Need"
         leftAction="search"
         rightAction="logout"
         enableSearch
@@ -52,7 +52,7 @@ export default function HomeScreen() {
         columnWrapperStyle={styles.row}
         contentContainerStyle={styles.content}
         keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <ProductHomeItem item={item} />}
+        renderItem={({ item }) => <ProductHomeItem item={item} onPress={() => router.push({pathname: "/product/[id]", params: {id: String(item.id)} })}/>}
         ListHeaderComponent={
           <View style={styles.categoriesContainer}>
             <FlatList
