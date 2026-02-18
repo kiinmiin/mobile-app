@@ -1,5 +1,6 @@
+import { useRouter } from "expo-router";
 import React from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, SafeAreaView, StyleSheet, View } from "react-native";
 import { FavoriteItem } from "../../components/FavoriteItem";
 import { Header } from "../../components/Header";
 import { colors } from "../../constants/colors";
@@ -9,10 +10,14 @@ import { products } from "../../data/products";
 export default function FavoritesScreen() {
   // mock: võtame esimesed 3 toodet "lemmikuteks"
   const favorites: Product[] = products.slice(0, 3);
+  const router = useRouter();
 
   return (
-    <View style={styles.container}>
-      <Header title="Favorites" />
+    <SafeAreaView style={styles.container}>
+      <Header
+        title="Favorites"
+        leftAction="back" onLeftPress={() => router.back()}
+      />
       <FlatList
         data={favorites}
         keyExtractor={(item) => String(item.id)}
@@ -20,7 +25,7 @@ export default function FavoritesScreen() {
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         contentContainerStyle={styles.content}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

@@ -7,7 +7,7 @@ import AuthHeader from "../../components/AuthHeader";
 import { Button } from "../../components/Button";
 import Checkbox from "../../components/Checkbox";
 import GoogleLogin from "../../components/GoogleLogin";
-import Input from "../../components/Input";
+import Input from "../../components/Input/index";
 import Separator from "../../components/Separator";
 
 import { styles } from "./signup.styles";
