@@ -1,5 +1,5 @@
-import { Redirect } from "expo-router";
+import { AuthGate } from "@/components/AuthGate";
 
 export default function Index() {
-  return <Redirect href="/splash" />;
+  return <AuthGate />;
 }

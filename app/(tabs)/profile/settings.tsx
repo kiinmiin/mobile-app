@@ -2,6 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { Alert, Linking, Pressable, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../../../components/Button";
 import { EditableBox } from "../../../components/EditableBox";
 import { Header } from "../../../components/Header";
@@ -26,7 +27,7 @@ export default function SettingsScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title="Settings" leftAction="back" onLeftPress={() => router.back()} />
 
       <View style={styles.content}>
@@ -61,7 +62,7 @@ export default function SettingsScreen() {
           <ListItem title="Contact us" icon="mail-outline" onPress={openHelp} />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

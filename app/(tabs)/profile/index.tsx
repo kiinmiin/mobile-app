@@ -1,22 +1,29 @@
 import { useRouter } from "expo-router";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { Button } from "../../../components/Button";
 import { Header } from "../../../components/Header";
 import { ListItem } from "../../../components/ListItem";
 import { colors } from "../../../constants/colors";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function ProfileScreen() {
+  const { signOut } = useAuth();
   const router = useRouter();
+
+  async function handleLogout() {
+    await signOut();
+    router.replace("/(auth)/sign-in");
+  }
 
   const user = { name: "User", email: "user@mail.com" };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header
         title="Profile"
         rightAction="logout"
-        onRightPress={() => console.log("logout")}
+        onRightPress={handleLogout}
       />
 
       <View style={styles.content}>
@@ -40,10 +47,10 @@ export default function ProfileScreen() {
         </View>
 
         <View style={styles.bottom}>
-          <Button title="Logout" onPress={() => console.log("logout")} />
+          <Button title="Logout" onPress={handleLogout} />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

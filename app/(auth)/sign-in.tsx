@@ -1,7 +1,7 @@
 import { colors } from "@/constants/colors";
-import { router } from "expo-router";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { View } from "react-native";
+import { Alert, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AuthFooter from "../../components/AuthFooter";
 import AuthHeader from "../../components/AuthHeader";
@@ -9,10 +9,32 @@ import { Button } from "../../components/Button";
 import GoogleLogin from "../../components/GoogleLogin";
 import Input from "../../components/Input/index";
 import Separator from "../../components/Separator";
+import { useAuth } from "../../context/AuthContext";
+import { getApiErrorMessage } from "../../lib/apiError";
+import { login } from "../../lib/endpoints";
+
 
 export default function SignInScreen() {
+  const { signIn } = useAuth();
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  async function handleSignIn() {
+    try {
+      if (!email || !password) {
+        Alert.alert("Fill all fields");
+        return;
+      }
+      const data = await login({ email, password });
+      await signIn(data);
+      router.replace("/(tabs)/home");
+    } catch (e) {
+      Alert.alert("Login failed", getApiErrorMessage(e));
+    }
+  }
+  
 
   return (
     <SafeAreaView style={{ backgroundColor: colors.background, flex: 1, padding: 20, justifyContent: "center" }}>
